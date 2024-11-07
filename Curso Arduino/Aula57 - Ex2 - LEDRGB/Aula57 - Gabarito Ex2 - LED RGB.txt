@@ -1,0 +1,42 @@
+//https://www.tinkercad.com/things/8krBe5Nbore
+
+int verde = 3;
+int azul = 5;
+int vermelho = 11;
+int i = 0;
+int tempo = 20;
+
+void setup()
+{
+  pinMode(verde, OUTPUT);
+  pinMode(azul, OUTPUT);
+  pinMode(vermelho, OUTPUT);
+}
+
+void loop()
+{
+  for(i = 0;i<=255;i++){
+    analogWrite(vermelho,i);
+    delay(tempo);
+  }
+  for(i = 255 ;i>=0;i--){
+    analogWrite(vermelho,i);
+    delay(tempo);
+  }
+  for(i = 0;i<=255;i++){
+    analogWrite(azul,i);
+    delay(tempo);
+  }
+  for(i = 255 ;i>=0;i--){
+    analogWrite(azul,i);
+    delay(tempo);
+  }
+  for(i = 0;i<=255;i++){
+    analogWrite(verde,i);
+    delay(tempo);
+  }
+  for(i = 255 ;i>=0;i--){
+    analogWrite(verde,i);
+    delay(tempo);
+  } 
+}

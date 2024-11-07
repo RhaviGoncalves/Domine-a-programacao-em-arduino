@@ -1,0 +1,26 @@
+//https://www.tinkercad.com/things/bTPPvzZhk27
+
+#include <Servo.h>
+
+int pos = 0;
+int potpin = A0;
+int valorpot = 0;
+
+Servo motorazul;
+
+void setup()
+{
+  motorazul.attach(6);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  valorpot = analogRead(potpin);
+  pos = map(valorpot,0,1023,0,180);
+  Serial.print("Motor: ");
+  Serial.println(pos);
+  
+  motorazul.write(pos);
+  delay(20);
+}

@@ -1,0 +1,120 @@
+//https://www.tinkercad.com/things/3ARTRS7vTv1
+
+int cm = 0;
+int led1 = 4;
+int led2 = 5;
+int led3 = 6;
+int led4 = 7;
+int led5 = 8;
+int led6 = 9;
+int led7 = 10;
+
+long readUltrasonicDistance(int triggerPin, int echoPin)
+{
+  pinMode(triggerPin, OUTPUT);  // Clear the trigger
+  digitalWrite(triggerPin, LOW);
+  delayMicroseconds(2);
+  // Sets the trigger pin to HIGH state for 10 microseconds
+  digitalWrite(triggerPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(triggerPin, LOW);
+  pinMode(echoPin, INPUT);
+  // Reads the echo pin, and returns the sound wave travel time in microseconds
+  return pulseIn(echoPin, HIGH);
+}
+
+void setup()
+{
+  pinMode(led1,OUTPUT);
+  pinMode(led2,OUTPUT);
+  pinMode(led3,OUTPUT);
+  pinMode(led4,OUTPUT);
+  pinMode(led5,OUTPUT);
+  pinMode(led6,OUTPUT);
+  pinMode(led7,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  // measure the ping time in cm
+  cm = 0.01723 * readUltrasonicDistance(3, 3);
+  // convert to inches by dividing by 2.54
+  
+  Serial.print("Distancia: ");
+  Serial.print(cm);
+  Serial.println("cm");
+  
+  if(cm <= 50){
+    digitalWrite(led1,0);
+    digitalWrite(led2,0);
+    digitalWrite(led3,0);
+    digitalWrite(led4,0);
+    digitalWrite(led5,0);
+    digitalWrite(led6,0);
+    digitalWrite(led7,0);
+  }
+  if((cm > 50)&&(cm<=100)){
+    digitalWrite(led1,1);
+    digitalWrite(led2,0);
+    digitalWrite(led3,0);
+    digitalWrite(led4,0);
+    digitalWrite(led5,0);
+    digitalWrite(led6,0);
+    digitalWrite(led7,0);
+  }
+  if((cm > 100)&&(cm<=150)){
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,0);
+    digitalWrite(led4,0);
+    digitalWrite(led5,0);
+    digitalWrite(led6,0);
+    digitalWrite(led7,0);
+  }
+  if((cm > 150)&&(cm<=200)){
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,1);
+    digitalWrite(led4,0);
+    digitalWrite(led5,0);
+    digitalWrite(led6,0);
+    digitalWrite(led7,0);
+  }
+  if((cm > 200)&&(cm<=250)){
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,1);
+    digitalWrite(led4,1);
+    digitalWrite(led5,0);
+    digitalWrite(led6,0);
+    digitalWrite(led7,0);
+  }
+  if((cm > 250)&&(cm<=300)){
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,1);
+    digitalWrite(led4,1);
+    digitalWrite(led5,1);
+    digitalWrite(led6,0);
+    digitalWrite(led7,0);
+  }
+  if((cm > 300)&&(cm<=310)){
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,1);
+    digitalWrite(led4,1);
+    digitalWrite(led5,1);
+    digitalWrite(led6,1);
+    digitalWrite(led7,0);
+  }
+  if(cm > 310){
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,1);
+    digitalWrite(led4,1);
+    digitalWrite(led5,1);
+    digitalWrite(led6,1);
+    digitalWrite(led7,1);
+  }
+}

@@ -1,0 +1,22 @@
+//https://www.tinkercad.com/things/in68PDUGmbQ
+
+int sensorpin = A0;
+int sensorvalor = 0;
+int temperatura = 0;
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  sensorvalor = analogRead(sensorpin);
+  
+  temperatura = map(sensorvalor,20,358,-40,125);
+  
+  Serial.print("Valor: ");
+  Serial.print(sensorvalor);
+  Serial.print("     Temperatura: ");
+  Serial.print(temperatura);
+  Serial.println(" oC");
+  
+}

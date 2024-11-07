@@ -1,0 +1,23 @@
+//https://www.tinkercad.com/things/74XMTx0yvJW
+
+int potpin = A0;
+int valor = 0;
+int tensao = 0;
+int pinopwm = 3;
+
+void setup()
+{
+  pinMode(pinopwm, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  valor = analogRead(potpin);
+  tensao = map(valor,0,1023,0,255);
+  
+  analogWrite(pinopwm,tensao);
+  
+  Serial.print("Saida Analogica: ");
+  Serial.println(tensao);
+}

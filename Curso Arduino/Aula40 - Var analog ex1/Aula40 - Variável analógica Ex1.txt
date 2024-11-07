@@ -1,0 +1,25 @@
+//https://www.tinkercad.com/things/7TrRIs7yFaD
+
+int led = 7;
+int potpin = A0;
+int potvalor = 0;
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  potvalor = analogRead(potpin);
+  Serial.print("O valor convertido eh: ");
+  Serial.println(potvalor);
+  
+  if(potvalor >= 614) { //valor de 3 V convertido
+    digitalWrite(led,1);
+  }
+  else{
+    digitalWrite(led,0);
+  }
+}

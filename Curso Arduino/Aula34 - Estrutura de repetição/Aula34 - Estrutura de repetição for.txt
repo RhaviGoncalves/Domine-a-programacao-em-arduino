@@ -1,0 +1,28 @@
+//https://www.tinkercad.com/things/9X7rGZfDSFb
+
+int i = 0;
+int bot = 3;
+int est = 0;
+int led = 2;
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+  pinMode(bot, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  est = digitalRead(bot);
+  if(est == 1){
+    for (i = 1; i <= 5 ; i++){
+      Serial.print("O valor de i: ");
+      Serial.println(i);
+      digitalWrite(led, HIGH);
+      delay(1000); 
+      digitalWrite(led, LOW);
+      delay(1000); 
+    }
+  }
+}

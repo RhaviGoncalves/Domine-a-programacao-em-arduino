@@ -1,0 +1,22 @@
+//https://www.tinkercad.com/things/8SbF21XnCMJ
+
+int potpin = A0;
+int valor = 0;
+int freq = 0;
+int buzzer = 13;
+
+void setup()
+{
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop()
+{
+  valor = analogRead(potpin);
+  
+  freq = map(valor,0,1023,100,1000);
+  
+  tone(buzzer, freq, 100);
+  delay(20);
+   
+}

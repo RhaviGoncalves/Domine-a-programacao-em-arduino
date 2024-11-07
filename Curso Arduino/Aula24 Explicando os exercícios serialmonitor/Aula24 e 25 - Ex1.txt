@@ -1,0 +1,46 @@
+//https://www.tinkercad.com/things/0MlLVeQgoXG
+
+int botao1 = 11;
+int estado1 = 0;
+int botao2 = 10;
+int estado2 = 0;
+int led = 7;
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+  pinMode(botao1, INPUT);
+  pinMode(botao2, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estado1 = digitalRead(botao1);
+  estado2 = digitalRead(botao2);
+  
+  if((estado1 == 0)&&(estado2 == 0)){
+    digitalWrite(led,0);
+  }
+  
+  if((estado1 == 0)&&(estado2 == 1)){
+    Serial.println("LED ligado");
+    digitalWrite(led,1);
+  }
+  
+  if((estado1 == 1)&&(estado2 == 0)){
+    Serial.println("Velocidade 1");
+    digitalWrite(led,1);
+    delay(200);
+    digitalWrite(led,0);
+    delay(200);
+  }
+  
+  if((estado1 == 1)&&(estado2 == 1)){
+    Serial.println("Velocidade 2");
+    digitalWrite(led,1);
+    delay(500);
+    digitalWrite(led,0);
+    delay(500);
+  }
+}

@@ -1,0 +1,26 @@
+//https://www.tinkercad.com/things/72GvkjnuGY6
+
+int botao = 11;
+int estado = 0;
+int led = 7;
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+  pinMode(botao, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estado = digitalRead(botao);
+  
+  if(estado == 1){
+    digitalWrite(led,1);
+    Serial.print("LED ligado");
+    Serial.print("\n");
+    delay(300);
+  } else{
+    digitalWrite(led,0);
+  }
+}

@@ -1,0 +1,66 @@
+//https://www.tinkercad.com/things/2i3MI5kjAhE
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+  
+  tone(13, 264, 500); // Toca Dó
+  delay(500);
+  tone(13, 297, 500); // Toca Ré
+  delay(500);
+  tone(13, 330, 500); // Toca Mi
+  delay(500);
+  tone(13, 352, 400); // Toca Fá
+  delay(500);
+  
+  tone(13, 352, 250); // Toca Fá
+  delay(250);
+  tone(13, 352, 250); // Toca Fá
+  delay(500);
+ 
+  tone(13, 264, 500); // Toca Dó
+  delay(500);
+  tone(13, 297, 500); // Toca Ré
+  delay(500);
+  tone(13, 264, 500); // Toca Dó
+  delay(500);
+  tone(13, 297, 400); // Toca Ré
+  delay(500);
+  tone(13, 297, 250); // Toca Ré
+  delay(250);
+  tone(13, 297, 250); // Toca Ré
+  delay(500);
+  
+  tone(13, 264, 500); // Toca Dó
+  delay(500);
+  tone(13, 396, 500); // Toca Sol
+  delay(500);
+  tone(13, 352, 500); // Toca Fá
+  delay(500);
+  tone(13, 330, 400); // Toca Mi
+  delay(500);
+  tone(13, 330, 250); // Toca Mi
+  delay(250);
+  tone(13, 330, 250); // Toca Mi
+  delay(500);
+  
+  tone(13, 264, 500); // Toca Dó
+  delay(500);
+  tone(13, 297, 500); // Toca Ré
+  delay(500);
+  tone(13, 330, 500); // Toca Mi
+  delay(500);
+  tone(13, 352, 400); // Toca Fá
+  delay(500);
+  
+  tone(13, 352, 250); // Toca Fá
+  delay(250);
+  tone(13, 352, 250); // Toca Fá
+  delay(500);
+  
+  delay(10); // Pequeno Delay para melhorar a performance da simulação
+}

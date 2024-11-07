@@ -1,0 +1,39 @@
+//https://www.tinkercad.com/things/ikvl9jR9xHy
+
+int b1 = 2;
+int e1 = 0;
+int led1 = 12;
+int led2 = 8;
+int led3 = 4;
+
+void setup(){
+  pinMode(b1, INPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+}
+
+void loop(){
+  //LED verde sempre aceso
+  digitalWrite(led1, 1);
+  //Lê o botão
+  e1 = digitalRead(b1);  
+  
+  if(e1 == 1){
+    //acende primeiro o LED verde
+    digitalWrite(led1, 1);
+    delay(2000);
+    digitalWrite(led1, 0);
+    //depois acende o LED amarelo
+    digitalWrite(led2, 1);
+    delay(3000);
+    digitalWrite(led2, 0);
+    //Depois o LED vermelho
+    digitalWrite(led3, 1);
+    delay(7000);
+    digitalWrite(led3, 0);
+  }
+}
+  
+    
+  

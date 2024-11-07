@@ -1,0 +1,40 @@
+//https://www.tinkercad.com/things/8mH66EJ8b13
+
+int verde = 2;
+int vermelho = 6;
+int potA0 = A0;
+int potA1 = A1;
+int valorA0 = 0;
+int valorA1 = 0;
+
+void setup(){
+  pinMode(verde, OUTPUT);
+  pinMode(vermelho, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop (){
+  valorA0 = analogRead(potA0);
+  valorA1 = analogRead(potA1);
+  Serial.print("A0: ");
+  Serial.print(valorA0);
+  Serial.print(" A1: ");
+  Serial.println(valorA1);
+  
+  if(valorA0 > valorA1){
+    digitalWrite(verde, 1);
+    digitalWrite(vermelho, 0);
+  }
+  if(valorA0 < valorA1){
+    digitalWrite(verde, 0);
+    digitalWrite(vermelho, 1);
+  }
+  if(valorA0 == valorA1){
+    digitalWrite(verde, 1);
+    digitalWrite(vermelho, 1);
+    delay(400);
+    digitalWrite(verde, 0);
+    digitalWrite(vermelho, 0);
+    delay(400);
+  }
+}

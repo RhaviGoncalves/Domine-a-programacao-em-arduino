@@ -1,0 +1,68 @@
+//https://www.tinkercad.com/things/3oNPB0RSFvd
+
+int b1 = 11;
+int e1 = 0;
+int led1 = 10;
+int led2 = 9;
+int led3 = 8;
+int cont = 0;
+
+void setup(){
+  pinMode(b1, INPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+  e1 = digitalRead(b1);
+  
+  if(e1 == 1){
+    cont = cont + 1;
+    Serial.print("Valor contagem: ");
+    Serial.println(cont);
+    delay(300);
+  }
+  
+  switch(cont){
+    case 0:
+    digitalWrite(led1,0);
+    digitalWrite(led2,0);
+    digitalWrite(led3,0);
+    break;
+    
+    case 1:
+    digitalWrite(led1,1);
+    digitalWrite(led2,0);
+    digitalWrite(led3,0);
+    break;
+    
+    case 2:
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,0);
+    break;
+    
+    case 3:
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,1);
+    break;
+    
+    case 4:
+    digitalWrite(led1,1);
+    digitalWrite(led2,1);
+    digitalWrite(led3,1);
+    delay(200);
+    digitalWrite(led1,0);
+    digitalWrite(led2,0);
+    digitalWrite(led3,0);
+    delay(200);
+    break;
+    
+    default:
+    cont = 0;
+    break;
+  } 
+}

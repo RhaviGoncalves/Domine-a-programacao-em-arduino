@@ -1,0 +1,58 @@
+//https://www.tinkercad.com/things/liIu2QIb24H
+
+int botao1 = 11;
+int estado1 = 0;
+int botao2 = 10;
+int estado2 = 0;
+int cont1 = 0;
+int cont2 = 0;
+int led = 7;
+
+void setup()
+{
+  pinMode(botao1, INPUT);
+  pinMode(botao2, INPUT);
+  pinMode(led, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estado1 = digitalRead(botao1);
+  estado2 = digitalRead(botao2);
+  
+  if(estado1 == 1){
+    cont1++;
+    if(cont1>5){
+      cont1 = 0;
+    }
+    Serial.print("Contagem 1: ");
+    Serial.print(cont1);
+    Serial.print("      Contagem 2: ");
+    Serial.println(cont2);
+    delay(300);
+  }
+   if(estado2 == 1){
+    cont2++;
+    if(cont2>5){
+      cont2 = 0;
+    }
+    Serial.print("Contagem 1: ");
+    Serial.print(cont1);
+    Serial.print(" Contagem 2: ");
+    Serial.println(cont2);
+    delay(300);
+  }
+  if(cont1==cont2){
+    digitalWrite(led,0);
+  }
+  if(cont1>cont2){
+    digitalWrite(led,1);
+  }
+  if(cont1<cont2){
+    digitalWrite(led,1);
+    delay(200);
+    digitalWrite(led,0);
+    delay(200);
+  }
+}

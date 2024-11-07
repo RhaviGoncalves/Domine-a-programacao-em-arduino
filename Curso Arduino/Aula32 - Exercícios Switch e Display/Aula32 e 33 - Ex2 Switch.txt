@@ -1,0 +1,116 @@
+//https://www.tinkercad.com/things/jWBPXs7Iqxu
+
+int D = 4;
+int C = 3;
+int B = 2;
+int A = 7;
+int cont = 0;
+int b1 = 11;
+int b2 = 10;
+int b3 = 9;
+int e1 = 0;
+int e2 = 0;
+int e3 = 0;
+
+void setup()
+{
+  pinMode(b1, INPUT);
+  pinMode(b2, INPUT);
+  pinMode(b3, INPUT);
+  pinMode(D, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(A, OUTPUT);
+}
+
+void loop()
+{
+  e1 = digitalRead(b1);
+  e2 = digitalRead(b2);
+  e3 = digitalRead(b3);
+  
+  if((e1 == 1)&&(e3 == 0)){
+    cont++;
+    delay(300);
+  }
+  if((e2 == 1)&&(e3 == 0)){
+    cont--;
+    delay(300);
+  }
+  
+  switch(cont){
+    case 0:
+    digitalWrite(D,0);
+    digitalWrite(C,0);
+    digitalWrite(B,0);
+    digitalWrite(A,0);
+    break;
+    
+    case 1:
+    digitalWrite(D,0);
+    digitalWrite(C,0);
+    digitalWrite(B,0);
+    digitalWrite(A,1);
+    break;
+    
+    case 2:
+    digitalWrite(D,0);
+    digitalWrite(C,0);
+    digitalWrite(B,1);
+    digitalWrite(A,0);
+    break;
+    
+    case 3:
+    digitalWrite(D,0);
+    digitalWrite(C,0);
+    digitalWrite(B,1);
+    digitalWrite(A,1);
+    break;
+    
+    case 4:
+    digitalWrite(D,0);
+    digitalWrite(C,1);
+    digitalWrite(B,0);
+    digitalWrite(A,0);
+    break;
+    
+    case 5:
+    digitalWrite(D,0);
+    digitalWrite(C,1);
+    digitalWrite(B,0);
+    digitalWrite(A,1);
+    break;
+
+    case 6:
+    digitalWrite(D,0);
+    digitalWrite(C,1);
+    digitalWrite(B,1);
+    digitalWrite(A,0);
+    break;
+    
+    case 7:
+    digitalWrite(D,0);
+    digitalWrite(C,1);
+    digitalWrite(B,1);
+    digitalWrite(A,1);
+    break;
+    
+    case 8:
+    digitalWrite(D,1);
+    digitalWrite(C,0);
+    digitalWrite(B,0);
+    digitalWrite(A,0);
+    break;
+    
+    case 9:
+    digitalWrite(D,1);
+    digitalWrite(C,0);
+    digitalWrite(B,0);
+    digitalWrite(A,1);
+    break;
+    
+    default:
+    cont=0;
+    break;
+  }
+}

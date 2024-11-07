@@ -1,0 +1,22 @@
+//https://www.tinkercad.com/things/3tizjW3GZ6N
+
+int sensorpin = A0;
+int sensorvalor = 0;
+int angulo = 0;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  sensorvalor = analogRead(sensorpin);
+  
+  angulo = map(sensorvalor,274,680,0,180);
+  
+  Serial.print("Valor: ");
+  Serial.print(sensorvalor);
+  Serial.print("    Angulo: ");
+  Serial.println(angulo);
+}

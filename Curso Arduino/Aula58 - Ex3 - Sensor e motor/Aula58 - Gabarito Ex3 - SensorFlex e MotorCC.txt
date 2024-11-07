@@ -1,0 +1,23 @@
+//https://www.tinkercad.com/things/8hKKH4dOnsR
+
+int sensorpin = A0;
+int valorsensor = 0;
+int tensao = 0;
+int pinopwm = 3;
+
+void setup()
+{
+  pinMode(pinopwm, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  valorsensor = analogRead(sensorpin);
+  tensao = map(valorsensor,274,680,0,255);
+  
+  analogWrite(pinopwm,tensao);
+  
+  Serial.print("Saida Analogica: ");
+  Serial.println(tensao);
+}

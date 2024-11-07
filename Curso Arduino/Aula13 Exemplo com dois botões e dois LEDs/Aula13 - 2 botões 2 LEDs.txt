@@ -1,0 +1,28 @@
+int botao1 = 3;
+int botao2 = 2;
+int est1 = 0;
+int est2 = 0;
+int led1 = 12;
+int led2 = 8;
+
+void setup (){
+  pinMode(botao1, INPUT);
+  pinMode(botao2, INPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+}
+
+void loop(){
+  est1 = digitalRead(botao1);
+  est2 = digitalRead(botao2);
+  if(est1 == 1){
+    digitalWrite(led1,1);
+    digitalWrite(led2,0);
+  }
+  if(est2 == 1){
+    digitalWrite(led2,1);
+    digitalWrite(led1,0);
+  }
+}
+
+//https://www.tinkercad.com/things/kuEfAVQk8i0

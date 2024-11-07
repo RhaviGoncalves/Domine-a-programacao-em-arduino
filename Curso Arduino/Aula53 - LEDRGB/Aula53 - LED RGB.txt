@@ -1,0 +1,46 @@
+//https://www.tinkercad.com/things/d6OHKjNgpll
+
+int potpin1 = A0;
+int potpin2 = A1;
+int potpin3 = A2;
+int valor1 = 0;
+int valor2 = 0;
+int valor3 = 0;
+int verde = 3;
+int azul = 5;
+int vermelho = 11;
+int escR = 0;
+int escG = 0;
+int escB = 0;
+
+void setup()
+{
+  pinMode(verde, OUTPUT);
+  pinMode(azul, OUTPUT);
+  pinMode(vermelho, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  valor1 = analogRead(potpin1);
+  valor2 = analogRead(potpin2);
+  valor3 = analogRead(potpin3);
+  
+  escR = map(valor1,0,1023,0,255);
+  escB = map(valor2,0,1023,0,255);
+  escG = map(valor3,0,1023,0,255);
+  
+  analogWrite(vermelho,escR);
+  analogWrite(verde,escG);
+  analogWrite(azul,escB);
+  
+  Serial.print("Vermelho: ");
+  Serial.print(escR);
+  Serial.print("   Azul: ");
+  Serial.print(escB);
+  Serial.print("   Verde: ");
+  Serial.println(escG);
+  
+  
+}

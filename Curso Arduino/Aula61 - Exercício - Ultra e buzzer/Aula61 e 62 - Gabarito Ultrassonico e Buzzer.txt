@@ -1,0 +1,49 @@
+//https://www.tinkercad.com/things/70c5IEljskk
+
+int cm = 0;
+int freq = 440;
+int buzzer = 12;
+
+long readUltrasonicDistance(int triggerPin, int echoPin)
+{
+  pinMode(triggerPin, OUTPUT);  // Clear the trigger
+  digitalWrite(triggerPin, LOW);
+  delayMicroseconds(2);
+  // Sets the trigger pin to HIGH state for 10 microseconds
+  digitalWrite(triggerPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(triggerPin, LOW);
+  pinMode(echoPin, INPUT);
+  // Reads the echo pin, and returns the sound wave travel time in microseconds
+  return pulseIn(echoPin, HIGH);
+}
+
+void setup()
+{
+  pinMode(buzzer,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+
+  cm = 0.01723 * readUltrasonicDistance(4, 4);
+  Serial.print(cm);
+  Serial.println(" cm");
+  
+  if((cm > 3)&&(cm <=30)){
+    tone(buzzer,2*freq,200);
+    delay(200);
+    delay(200);
+  }
+  if((cm > 30)&&(cm <=60)){
+    tone(buzzer,660,400);
+    delay(400);
+    delay(400);
+  }
+  if((cm > 60)&&(cm<=100)){
+    tone(buzzer,freq,800);
+    delay(800);
+    delay(800);
+  }
+}

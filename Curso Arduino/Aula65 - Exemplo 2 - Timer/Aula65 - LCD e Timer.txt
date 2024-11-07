@@ -1,0 +1,78 @@
+//https://www.tinkercad.com/things/7A9Au21NBLx
+
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+int bot1 = 10;
+int bot2 = 9;
+int bot3 = 8;
+int es1 = 0;
+int es2 = 0;
+int es3 = 0;
+int tempo = 0;
+int modo = 0; //0 seleciona, 1 ativando a contagem regressiva
+ 
+void setup() {
+  lcd.begin(16, 2);
+  pinMode(bot1,INPUT);
+  pinMode(bot2,INPUT);
+  pinMode(bot3,INPUT);
+}
+
+void loop() {
+  
+  es1 = digitalRead(bot1);
+  es2 = digitalRead(bot2);
+  es3 = digitalRead(bot3);
+  
+  if(modo == 0){
+    lcd.setCursor(0,0);
+    lcd.print("TIME SELECT");
+    lcd.setCursor(0,1);
+    lcd.print(tempo);
+    if(es1 == 1){
+      delay(300);
+      lcd.clear();
+      tempo++;
+      if(tempo >=59){
+        tempo = 59;
+      }
+      lcd.print(tempo);
+    }
+    if(es2 == 1){
+      delay(300);
+      lcd.clear();
+      tempo--;
+      if(tempo <=0){
+        tempo = 0;
+      }
+      lcd.print(tempo);
+    }
+    if(es3 == 1){
+      delay(300);
+      lcd.clear();
+      modo = 1;
+      lcd.setCursor(0,0);
+      lcd.print("START");
+      delay(1000);
+    }
+  }else{
+      if(tempo == 0){
+        modo = 0;
+        lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("FIM DO TEMPO");
+        delay(2000);
+      }else{
+        lcd.clear();
+      	lcd.setCursor(0,0);
+      	lcd.print("TIME");
+      	lcd.setCursor(0,1);
+      	lcd.print(tempo);
+      	tempo = tempo - 1;
+      	delay(1000);
+      	lcd.clear();
+      }
+  }
+}

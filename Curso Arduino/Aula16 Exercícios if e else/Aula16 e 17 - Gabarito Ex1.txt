@@ -1,0 +1,25 @@
+//https://www.tinkercad.com/things/fT0GZaNSXbw
+
+int b1 = 3;
+int b2 = 2;
+int e1 = 0;
+int e2 = 0;
+int led = 12;
+
+void setup(){
+  pinMode(b1, INPUT);
+  pinMode(b2, INPUT);
+  pinMode(led, OUTPUT);
+}
+
+void loop(){
+  e1 = digitalRead(b1);
+  e2 = digitalRead(b2);
+  if(e1 == 1){
+    digitalWrite(led, 1);
+  }
+  if(e2 == 1){
+    digitalWrite(led, 0);
+  }
+}
+  

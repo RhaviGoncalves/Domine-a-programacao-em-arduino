@@ -1,0 +1,30 @@
+//https://www.tinkercad.com/things/i6E87sxSwUt
+
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+int potpin = A0;
+int valor = 0;
+int escala = 0;
+
+void setup() {
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+}
+
+void loop() {
+  lcd.setCursor(0, 0);
+  lcd.print("Potenciometro");
+  lcd.setCursor(0, 1);
+  valor = analogRead(potpin);
+  escala = map(valor,0,1023,0,100);
+  lcd.print(escala);
+  lcd.setCursor(5, 1);
+  lcd.print("%");
+  delay(50);
+  lcd.clear();
+}
+ 

@@ -1,0 +1,35 @@
+//https://www.tinkercad.com/things/8ABJm7AP71h
+
+// include the library code:
+#include <LiquidCrystal.h>
+#include <Servo.h>
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+Servo azul;
+
+int potpin = A0;
+int valor = 0;
+int angulo = 0;
+
+void setup() {
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  azul.attach(9);
+}
+
+void loop() {
+  valor = analogRead(potpin);
+  angulo = map(valor,0,1023,0,180);
+  azul.write(angulo);
+  
+  lcd.setCursor(0, 0);
+  lcd.print("SERVO MOTOR");
+  lcd.setCursor(0, 1);
+  lcd.print("ANG ");
+  lcd.setCursor(4, 1);
+  lcd.print(angulo);
+  delay(100);
+  lcd.clear();
+}
+ 

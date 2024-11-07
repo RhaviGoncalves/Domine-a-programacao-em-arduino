@@ -1,0 +1,42 @@
+//https://www.tinkercad.com/things/blsqcfIHR8Y
+
+int botao1 = 11;
+int estado1 = 0;
+int botao2 = 10;
+int estado2 = 0;
+int cont = 0;
+
+void setup()
+{
+  pinMode(botao1, INPUT);
+  pinMode(botao2, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estado1 = digitalRead(botao1);
+  estado2 = digitalRead(botao2);
+  
+  if(estado1 == 1){
+    cont++;
+    if(cont>=5){
+      cont = 5;
+    }
+    Serial.print("Valor da contagem: ");
+    Serial.println(cont);
+    delay(300);
+  }
+  if(estado2 == 1){
+    cont--;
+    if(cont<=0){
+      cont = 0;
+    }
+    Serial.print("Valor da contagem: ");
+    Serial.println(cont);
+    delay(300);
+  }
+}
+  
+  
+  

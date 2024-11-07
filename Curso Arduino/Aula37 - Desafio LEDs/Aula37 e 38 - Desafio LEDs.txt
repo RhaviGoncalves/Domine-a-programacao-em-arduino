@@ -1,0 +1,64 @@
+//https://www.tinkercad.com/things/1blPETK01fm
+
+int botao1 = 11;
+int estado1 = 0;
+int botao2 = 10;
+int estado2 = 0;
+int botao3 = 9;
+int estado3 = 0;
+int cont = 1;
+int i = 0;
+
+void setup()
+{
+  pinMode(botao1, INPUT);
+  pinMode(botao2, INPUT);
+  pinMode(botao3, INPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  estado1 = digitalRead(botao1);
+  estado2 = digitalRead(botao2);
+  estado3 = digitalRead(botao3);
+  
+  if(estado1 == 1){
+    cont++;
+    if(cont>=5){
+      cont = 5;
+    }
+    Serial.print("Contagem: ");
+    Serial.println(cont);
+    delay(300);
+  }
+   if(estado2 == 1){
+    cont--;
+    if(cont<=1){
+      cont = 1;
+    }
+    Serial.print("Contagem: ");
+    Serial.println(cont);
+    delay(300);
+  }
+  if (estado3 == 1){
+    for (i = 3; i < cont + 3 ; i ++) {
+      Serial.print("O valor de i: ");
+      Serial.println(i);
+      digitalWrite(i, 1);
+      delay(1000);
+    }
+    for (i = cont + 2 ; i > 2 ; i --) {
+      Serial.print("O valor de i: ");
+      Serial.println(i);
+      digitalWrite(i, 0);
+      delay(1000);
+    }
+  }
+}
+  

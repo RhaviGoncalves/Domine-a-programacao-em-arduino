@@ -1,0 +1,42 @@
+//https://www.tinkercad.com/things/bgE2xuXwGWL
+
+int b1 = 4;
+int b2 = 3;
+int b3 = 2;
+int e1 = 0;
+int e2 = 0;
+int e3 = 0;
+int led1 = 12;
+int led2 = 8;
+int trava = 0;
+
+void setup(){
+  pinMode(b1, INPUT);
+  pinMode(b2, INPUT);
+  pinMode(b3, INPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+}
+
+void loop(){
+  e1 = digitalRead(b1);
+  e2 = digitalRead(b2);
+  e3 = digitalRead(b3);
+  
+  if((e1 == 1)&&(trava == 0)){
+    digitalWrite(led1, 1);
+    trava = 1;
+  }
+  if((e2 == 1)&&(trava == 0)){
+    digitalWrite(led2, 1);
+    trava = 1;
+  }
+  if(e3 == 1){
+    digitalWrite(led1, 0);
+    digitalWrite(led2, 0);
+    trava = 0;
+  }
+}
+  
+    
+  

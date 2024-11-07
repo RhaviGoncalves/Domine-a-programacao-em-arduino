@@ -1,0 +1,20 @@
+//Declaração de variáveis
+int LED = 3;
+int tempo = 500;
+
+//Configurações inicias
+void setup(){
+  pinMode(LED,OUTPUT);
+}
+
+//programa principal
+void loop(){
+  digitalWrite(LED, HIGH); //acende o LED
+  delay(tempo);				//espera um tempo
+  digitalWrite(LED, LOW);	//apaga o LED
+  delay(tempo);				//espera um tempo
+}
+
+//fim do programa
+
+//https://www.tinkercad.com/things/2QovdG7e5fn

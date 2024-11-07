@@ -1,0 +1,19 @@
+//https://www.tinkercad.com/things/0PFqtx5IvV1
+
+int brightness = 0;
+int potpin = A0;
+int valorpot = 0;
+
+void setup()
+{
+  pinMode(8, OUTPUT);
+}
+
+void loop()
+{
+  valorpot = analogRead(potpin);
+  
+  brightness = map(valorpot,0,1023,0,255);
+  
+  analogWrite(8, brightness);
+}

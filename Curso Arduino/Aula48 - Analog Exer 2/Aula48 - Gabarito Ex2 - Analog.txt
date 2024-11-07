@@ -1,0 +1,34 @@
+//https://www.tinkercad.com/things/1iDH4LTObwE
+
+int sensorpin = A0;
+int sensorvalor = 0;
+int luz = 0;
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  sensorvalor = analogRead(sensorpin);
+  
+  luz = map(sensorvalor,1017,344,0,100);  
+
+  if(luz <= 33){
+    Serial.print("luminosidade: ");
+  	Serial.print(luz);
+  	Serial.print(" %");
+  	Serial.println("    - Luz Fraca");
+  }
+  if((luz>33)&&(luz<=66)){
+    Serial.print("luminosidade: ");
+  	Serial.print(luz);
+  	Serial.print(" %");
+  	Serial.println("    - Luz Moderada");
+  }
+  if(luz>66){
+    Serial.print("luminosidade: ");
+  	Serial.print(luz);
+  	Serial.print(" %");
+  	Serial.println("    - Luz Forte");
+  }
+}

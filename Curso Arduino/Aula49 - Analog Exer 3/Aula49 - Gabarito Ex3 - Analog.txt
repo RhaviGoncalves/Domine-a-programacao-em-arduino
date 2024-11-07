@@ -1,0 +1,52 @@
+//https://www.tinkercad.com/things/9Lsxg9zKC6U
+
+int sensorpin = A0;
+int sensorvalor = 0;
+int temperatura = 0;
+int azul = 2;
+int verde = 4;
+int amarelo = 6;
+int vermelho = 8;
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(azul, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(amarelo, OUTPUT);
+  pinMode(vermelho, OUTPUT);
+}
+
+void loop(){
+  sensorvalor = analogRead(sensorpin);
+  
+  temperatura = map(sensorvalor,20,358,-40,125);
+  
+  Serial.print("Temperatura: ");
+  Serial.print(temperatura);
+  Serial.println(" oC");
+  
+  if(temperatura <=0){
+    digitalWrite(azul,1);
+    digitalWrite(verde,0);
+    digitalWrite(amarelo,0);
+    digitalWrite(vermelho,0);
+  }
+  if((temperatura > 0)&&(temperatura<=40)){
+    digitalWrite(azul,0);
+    digitalWrite(verde,1);
+    digitalWrite(amarelo,0);
+    digitalWrite(vermelho,0);
+  }
+  if((temperatura > 40)&&(temperatura <=100)){
+    digitalWrite(azul,0);
+    digitalWrite(verde,0);
+    digitalWrite(amarelo,1);
+    digitalWrite(vermelho,0);
+  }
+  if(temperatura > 100){
+    digitalWrite(azul,0);
+    digitalWrite(verde,0);
+    digitalWrite(amarelo,0);
+    digitalWrite(vermelho,1);
+  }
+}

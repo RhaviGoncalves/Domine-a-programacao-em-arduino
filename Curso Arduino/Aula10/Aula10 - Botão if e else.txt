@@ -1,0 +1,19 @@
+int botao = 6;
+int LED = 8;
+int estado_botao = 0;
+
+void setup(){
+  pinMode(botao, INPUT);
+  pinMode(LED, OUTPUT);
+}
+
+void loop(){
+  estado_botao = digitalRead(botao);
+  if(estado_botao == 1){
+    digitalWrite(LED, 1);
+  }else{
+    digitalWrite(LED, 0);
+  }
+}
+
+//https://www.tinkercad.com/things/e9mVD8QIsDQ

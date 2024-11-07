@@ -1,0 +1,41 @@
+//https://www.tinkercad.com/things/9S8W3YNI5Yl
+
+void setup()
+{
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
+  pinMode(4, INPUT);
+  pinMode(5, INPUT);
+  pinMode(6, INPUT);
+  pinMode(7, INPUT);
+  pinMode(8, INPUT);
+  pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+  
+  if (digitalRead(8) == HIGH) {
+    tone(13, 264, 100); // Toca Dó
+  }
+  if (digitalRead(7) == HIGH) {
+    tone(13, 297, 100); // Toca Ré
+  }
+  if (digitalRead(6) == HIGH) {
+    tone(13, 330, 100); // Toca Mi
+  }
+  if (digitalRead(5) == HIGH) {
+    tone(13, 352, 100); // Toca Fá
+  }
+  if (digitalRead(4) == HIGH) {
+    tone(13, 396, 100); // Toca Sol
+  }
+  if (digitalRead(3) == HIGH) {
+    tone(13, 440, 100); // Toca Lá
+  }
+  if (digitalRead(2) == HIGH) {
+    tone(13, 495, 100); // Toca Si
+  }
+  
+  delay(10); // Pequeno Delay para melhorar a performance da simulação
+}

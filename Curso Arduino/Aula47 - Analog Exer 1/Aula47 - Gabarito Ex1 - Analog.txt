@@ -1,0 +1,70 @@
+//https://www.tinkercad.com/things/0reNWRskHqJ
+
+int led1 = 2;
+int led2 = 4;
+int led3 = 6;
+int led4 = 8;
+int led5 = 10;
+int potpin = A0;
+int potvalor = 0;
+int porc = 0;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+}
+
+void loop()
+{
+  potvalor = analogRead(potpin);
+  porc = map(potvalor,0,1023,0,100);
+  Serial.print(porc);
+  Serial.println(" %");
+  if(porc <= 20){
+    digitalWrite(led1, 0);
+    digitalWrite(led2, 0);
+    digitalWrite(led3, 0);
+    digitalWrite(led4, 0);
+    digitalWrite(led5, 0);
+  }
+  if((porc > 20)&&(porc <=40)){
+    digitalWrite(led1, 1);
+    digitalWrite(led2, 0);
+    digitalWrite(led3, 0);
+    digitalWrite(led4, 0);
+    digitalWrite(led5, 0);
+  }
+  if((porc > 40)&&(porc <=60)){
+    digitalWrite(led1, 1);
+    digitalWrite(led2, 1);
+    digitalWrite(led3, 0);
+    digitalWrite(led4, 0);
+    digitalWrite(led5, 0);
+  }
+  if((porc > 60)&&(porc <=80)){
+    digitalWrite(led1, 1);
+    digitalWrite(led2, 1);
+    digitalWrite(led3, 1);
+    digitalWrite(led4, 0);
+    digitalWrite(led5, 0);
+  }
+  if((porc > 80)&&(porc <100)){
+    digitalWrite(led1, 1);
+    digitalWrite(led2, 1);
+    digitalWrite(led3, 1);
+    digitalWrite(led4, 1);
+    digitalWrite(led5, 0);
+  }
+  if(porc >= 100){
+    digitalWrite(led1, 1);
+    digitalWrite(led2, 1);
+    digitalWrite(led3, 1);
+    digitalWrite(led4, 1);
+    digitalWrite(led5, 1);
+  }
+}

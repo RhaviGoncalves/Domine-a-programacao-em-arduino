@@ -1,0 +1,23 @@
+//https://www.tinkercad.com/things/hOIuUD382Pm
+
+int sensorpin = A0;
+int sensorvalor = 0;
+int led = 3;
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  sensorvalor = analogRead(sensorpin);
+  
+  Serial.print("Valor convertido: ");
+  Serial.println(sensorvalor);
+  
+  if(sensorvalor > 600){
+    digitalWrite(led,1);
+  }
+  else{
+    digitalWrite(led,0);
+  }
+}
